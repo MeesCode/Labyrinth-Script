@@ -118,31 +118,31 @@ The language consists of the commands listed below.
     <td>Recover current cell globally.</td>
   </tr>
   <tr>
-    <td>\*+</td>
+    <td>*+</td>
     <td>Take the sum of the integer at the current data pointer and the global variable and store this as the integer at the current data pointer.</td>
     <td>Add the global variable and the current cell.
 A = A + B</td>
   </tr>
   <tr>
-    <td>\*-</td>
+    <td>*-</td>
     <td>Take the subtraction of the global variable from the integer at the current data pointer and store this as the integer at the current data pointer.</td>
     <td>Subtract the global variable from the current cell.
 A= A - B</td>
   </tr>
   <tr>
-    <td>\*\*</td>
+    <td>**</td>
     <td>Take the multiplication of the integer at the current data pointer and the global variable and store this as the integer at the current data pointer.</td>
     <td>Multiply the global variable and the current cell.
 A = A * C</td>
   </tr>
   <tr>
-    <td>\*^</td>
+    <td>*^</td>
     <td>Take the integer at the current data pointer and the global variable and store the integer to the power of the global variable as the integer at the current data pointer.</td>
     <td>Take the current cell to the power of the global variable.
 A = pow(A, C) = AC</td>
   </tr>
   <tr>
-    <td>\*%</td>
+    <td>*%</td>
     <td>Take the integer at the current data pointer and the global variable and store the integer  modulo the global variable as the integer at the current data pointer.</td>
     <td>Take the current cell modulo the global variable.
 A = mod(A, C) = A % C </td>
