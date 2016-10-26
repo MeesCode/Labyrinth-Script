@@ -3,9 +3,11 @@
  */
 public class data {
 
+    private static final int size = 100;
+
     private static int indexX = 0;
     private static int indexY = 0;
-    private static long[][] data = new long[100][100];
+    private static long[][] data = new long[size][size];
 
     private static long global;
 
@@ -18,26 +20,34 @@ public class data {
     }
 
     public static void increaseX() {
+        if (indexX >= size - 1)
+            main.abort("(" + indexX + ", " + indexY + ") Data does not exist.");
         indexX++;
     }
 
     public static void decreaseX() {
+        if (indexX <= 0)
+            main.abort("(" + indexX + ", " + indexY + ") Data does not exist.");
         indexX--;
     }
 
-    public static void increaseY(){
+    public static void increaseY() {
+        if (indexY >= size - 1)
+            main.abort("(" + indexX + ", " + indexY + ") Data does not exist.");
         indexY++;
     }
 
-    public static void decreaseY(){
+    public static void decreaseY() {
+        if (indexY >= 0)
+            main.abort("(" + indexX + ", " + indexY + ") Data does not exist.");
         indexY--;
     }
 
-    public static void setGlobal(long l){
+    public static void setGlobal(long l) {
         global = l;
     }
 
-    public static long getGlobal(){
+    public static long getGlobal() {
         return global;
     }
 

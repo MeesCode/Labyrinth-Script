@@ -171,7 +171,7 @@ public class commands {
                         indexX = 0;
                         indexY++;
                     } else {
-                        main.abort("indexX too high: " + indexX + ", " + indexY);
+                        main.abort("(" + indexX + ", " + indexY + ") Commands does not exist.");
                     }
                 }
                 break;
@@ -183,7 +183,7 @@ public class commands {
                         indexX = commands.length - 1;
                         indexY--;
                     } else {
-                        main.abort("indexX too low: " + indexX + ", " + indexY);
+                        main.abort("(" + indexX + ", " + indexY + ") Commands does not exist.");
                     }
                 }
                 break;
@@ -191,14 +191,14 @@ public class commands {
                 if (hasFollowing(d)) {
                     indexY++;
                 } else {
-                    main.abort("indexY too high: " + indexX + ", " + indexY);
+                    main.abort("(" + indexX + ", " + indexY + ") Commands does not exist.");
                 }
                 break;
             case UP:
                 if (hasFollowing(d)) {
                     indexY--;
                 } else {
-                    main.abort("indexY too low: " + indexX + ", " + indexY);
+                    main.abort("(" + indexX + ", " + indexY + ") Commands does not exist.");
                 }
                 break;
         }
