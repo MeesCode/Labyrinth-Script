@@ -2,7 +2,7 @@
 
 Brainfuck is a very small programing language, consisting of only eight statements. The language is "Turing-complete" which means that (theoretically) it can perform any computation that can be done in (for example) Basic or C.
 
-Labyrinth Script is a programming language that is backwards compatible with BrainFuck. This means that any code that has been mode in Labyrinth Script is also Labyrinth Script code. Labyrinth Script, however, has a lot more features than Labyrinth Script as well as an unique syntax that kind of resembles the programming language Befunge, but functions very differently.
+Labyrinth Script is a programming language that is backwards compatible with BrainFuck. This means that any code that has been mode in Labyrinth Script is also Labyrinth Script code. Labyrinth Script, however, has a lot more features than BrainFuck as well as an unique syntax that kind of resembles the programming language Befunge, but functions very differently.
 
 Anyone wanting to learn how to write Labyrinth Script code should familiarize themselves with BrainFuck first. The basics will be explained in this document, but more in-depth tutorials are easily found online.
 
