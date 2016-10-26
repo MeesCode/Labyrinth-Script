@@ -224,7 +224,7 @@ In this case the program assigns the values 70, 100, 30 and 10 to some cells, si
 
 To get more info on this we highly recommend anyone not too familiar with BrainFuck to read some simple tutorials.
 
-# 5	Some Labyrinth Script specific statements**
+# 5	Some Labyrinth Script specific statements
 
 ## 5.1 IF-statement
 
