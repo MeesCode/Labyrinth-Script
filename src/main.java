@@ -85,6 +85,7 @@ public class main {
         commands.reset();
         logic.reset();
         data.reset();
+        window.reset();
         stop = false;
     }
 

@@ -15,7 +15,6 @@ public class commands {
     private static direction dir = direction.RIGHT;
 
     public static void setCommand(char[][] c) {
-        //System.out.println("command set");
         commands = c;
     }
 
@@ -141,7 +140,6 @@ public class commands {
     public static boolean hasFollowing(direction d) {
         switch (d) {
             case RIGHT:
-                //System.out.println(indexX + ", " + (commands.length - 1));
                 if (indexX >= commands.length - 1 && !hasFollowing(direction.DOWN))
                     return false;
                 break;
@@ -173,7 +171,6 @@ public class commands {
                         indexY++;
                     } else {
                         main.abort("(" + indexX + ", " + indexY + ") Commands does not exist.");
-                        window.toOutput("(" + indexX + ", " + indexY + ") Commands does not exist.");
                     }
                 }
                 break;
@@ -186,7 +183,6 @@ public class commands {
                         indexY--;
                     } else {
                         main.abort("(" + indexX + ", " + indexY + ") Commands does not exist.");
-                        window.toOutput("(" + indexX + ", " + indexY + ") Commands does not exist.");
                     }
                 }
                 break;
@@ -195,7 +191,6 @@ public class commands {
                     indexY++;
                 } else {
                     main.abort("(" + indexX + ", " + indexY + ") Commands does not exist.");
-                    window.toOutput("(" + indexX + ", " + indexY + ") Commands does not exist.");
                 }
                 break;
             case UP:
@@ -203,7 +198,6 @@ public class commands {
                     indexY--;
                 } else {
                     main.abort("(" + indexX + ", " + indexY + ") Commands does not exist.");
-                    window.toOutput("(" + indexX + ", " + indexY + ") Commands does not exist.");
                 }
                 break;
         }

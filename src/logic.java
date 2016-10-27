@@ -63,8 +63,7 @@ public class logic {
                 try {
                     data.setData(readInput());
                 } catch (IOException e) {
-                    System.out.println("cannot read input");
-                    window.toOutput("cannot read input\n");
+                    main.abort("cannot read input");
                 }
                 break;
             case '#':

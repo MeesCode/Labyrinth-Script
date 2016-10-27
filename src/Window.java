@@ -62,7 +62,6 @@ public class window extends Application {
 
         button.setOnAction(event -> {
             main.reset();
-            output.setText("");
             commands.setCommand(main.turnIntoArray(input.getText()));
             main.run();
         });
@@ -110,8 +109,7 @@ public class window extends Application {
         root.getChildren().addAll(grid, menuBar);
 
         stage.setScene(scene);
-        scene.getStylesheets().add
-                (this.getClass().getResource("style.css").toExternalForm());
+        scene.getStylesheets().add(this.getClass().getResource("style.css").toExternalForm());
 
         stage.show();
     }
@@ -155,5 +153,9 @@ public class window extends Application {
 
     public static void toOutput(long s){
         output.setText(output.getText() + s);
+    }
+
+    public static void reset(){
+        output.setText("");
     }
 }

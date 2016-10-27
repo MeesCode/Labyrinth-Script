@@ -1,6 +1,6 @@
 
 #button{
-    -fx-min-width: 100%;
+    -fx-min-width: 850;
 }
 
 #input{
@@ -10,6 +10,7 @@
 }
 
 #output{
+    -fx-min-width: 850;
     -fx-max-height: 150;
     -fx-font-family: monospace;
 }
