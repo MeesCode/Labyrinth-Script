@@ -20,26 +20,30 @@ public class data {
     }
 
     public static void increaseX() {
-        if (indexX >= size - 1)
+        if (indexX >= size - 1) {
             main.abort("(" + (indexX + 1) + ", " + indexY + ") Data does not exist.");
+        }
         indexX++;
     }
 
     public static void decreaseX() {
-        if (indexX <= 0)
+        if (indexX <= 0) {
             main.abort("(" + (indexX - 1) + ", " + indexY + ") Data does not exist.");
+        }
         indexX--;
     }
 
     public static void increaseY() {
-        if (indexY >= size - 1)
+        if (indexY >= size - 1) {
             main.abort("(" + indexX + ", " + (indexY + 1) + ") Data does not exist.");
+        }
         indexY++;
     }
 
     public static void decreaseY() {
-        if (indexY >= 0)
-            main.abort("(" + indexX + ", " + (indexY - 1)+ ") Data does not exist.");
+        if (indexY <= 0) {
+            main.abort("(" + indexX + ", " + (indexY - 1) + ") Data does not exist.");
+        }
         indexY--;
     }
 
@@ -51,5 +55,9 @@ public class data {
         return global;
     }
 
-
+    public static void reset(){
+        indexX = 0;
+        indexY = 0;
+        data = new long[size][size];
+    }
 }

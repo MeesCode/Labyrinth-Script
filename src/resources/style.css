@@ -1,0 +1,16 @@
+
+#button{
+    -fx-min-width: 100%;
+}
+
+#input{
+    -fx-min-width: 850;
+    -fx-min-height: 500;
+    -fx-font-family: monospace;
+}
+
+#output{
+    -fx-max-height: 150;
+    -fx-font-family: monospace;
+}
+

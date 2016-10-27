@@ -49,18 +49,22 @@ public class logic {
                 break;
             case '.':
                 System.out.print((char) data.getData());
+                window.toOutput((char) data.getData());
                 break;
             case ':':
                 System.out.print(data.getData());
+                window.toOutput(data.getData());
                 break;
             case '\\':
                 System.out.println();
+                window.toOutput("\n");
                 break;
             case ',':
                 try {
                     data.setData(readInput());
                 } catch (IOException e) {
                     System.out.println("cannot read input");
+                    window.toOutput("cannot read input\n");
                 }
                 break;
             case '#':
@@ -103,6 +107,10 @@ public class logic {
 
     private static int readInput() throws IOException {
         return System.in.read();
+    }
+
+    public static void reset(){
+        arithmetic_modifier = false;
     }
 
 }

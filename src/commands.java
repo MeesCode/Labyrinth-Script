@@ -15,6 +15,7 @@ public class commands {
     private static direction dir = direction.RIGHT;
 
     public static void setCommand(char[][] c) {
+        //System.out.println("command set");
         commands = c;
     }
 
@@ -172,6 +173,7 @@ public class commands {
                         indexY++;
                     } else {
                         main.abort("(" + indexX + ", " + indexY + ") Commands does not exist.");
+                        window.toOutput("(" + indexX + ", " + indexY + ") Commands does not exist.");
                     }
                 }
                 break;
@@ -184,6 +186,7 @@ public class commands {
                         indexY--;
                     } else {
                         main.abort("(" + indexX + ", " + indexY + ") Commands does not exist.");
+                        window.toOutput("(" + indexX + ", " + indexY + ") Commands does not exist.");
                     }
                 }
                 break;
@@ -192,6 +195,7 @@ public class commands {
                     indexY++;
                 } else {
                     main.abort("(" + indexX + ", " + indexY + ") Commands does not exist.");
+                    window.toOutput("(" + indexX + ", " + indexY + ") Commands does not exist.");
                 }
                 break;
             case UP:
@@ -199,6 +203,7 @@ public class commands {
                     indexY--;
                 } else {
                     main.abort("(" + indexX + ", " + indexY + ") Commands does not exist.");
+                    window.toOutput("(" + indexX + ", " + indexY + ") Commands does not exist.");
                 }
                 break;
         }
@@ -225,5 +230,12 @@ public class commands {
                 break;
         }
         return false;
+    }
+
+    public static void reset(){
+        dir = direction.RIGHT;
+        indexY = 0;
+        indexX = 0;
+        commands = new char[100][100];
     }
 }
