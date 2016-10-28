@@ -53,6 +53,7 @@ namespace WindowsFormsApplication1
 
         private void Run_Click(object sender, EventArgs e)
         {
+            output.Text = string.Empty;
             m.reset();
             m.getCommands().setCommand(m.turnIntoArray(input.Text));
             m.run();

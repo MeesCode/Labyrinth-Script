@@ -8,7 +8,7 @@ namespace WindowsFormsApplication1
 {
     class commands
     {
-        main m;
+        private main m;
         private int indexX = 0;
         private int indexY = 0;
         private char[,] commandArray = new char[100, 100];
