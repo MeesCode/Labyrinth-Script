@@ -76,7 +76,7 @@ namespace WindowsFormsApplication1
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(currentPath != null)
+            if(currentPath == null)
             {
                 System.IO.File.WriteAllText(currentPath, input.Text);
             } else
