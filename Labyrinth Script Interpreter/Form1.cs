@@ -110,5 +110,10 @@ namespace WindowsFormsApplication1
 
             input.Text = temp;
         }
+
+        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
     }
 }
