@@ -8,85 +8,95 @@ namespace WindowsFormsApplication1
 {
     class logic
     {
-        private static bool arithmetic_modifier = false;
-        public static string execute(char command)
+        private bool arithmetic_modifier = false;
+        private main m;
+
+        public logic(main ma)
+        {
+            m = ma;
+        }
+
+        public void execute(char command)
         {
             switch (command)
             {
                 case '>':
-                    data.increaseX();
+                    m.getData().increaseX();
                     break;
                 case '<':
-                    data.decreaseX();
+                    m.getData().decreaseX();
                     break;
                 case '^':
                     if (arithmetic_modifier)
                     {
-                        data.setData((long)Math.Pow(data.getData(), data.getGlobal()));
+                        m.getData().setData((long)Math.Pow(m.getData().getData(), m.getData().getGlobal()));
                         arithmetic_modifier = false;
                     }
                     else
-                        data.decreaseY();
+                        m.getData().decreaseY();
                     break;
                 case 'v':
-                    data.increaseY();
+                    m.getData().increaseY();
                     break;
                 case '+':
                     if (arithmetic_modifier)
                     {
-                        data.setData(data.getData() + data.getGlobal());
+                        m.getData().setData(m.getData().getData() + m.getData().getGlobal());
                         arithmetic_modifier = false;
                     }
                     else
-                        data.setData(data.getData() + 1);
+                        m.getData().setData(m.getData().getData() + 1);
                     break;
                 case '-':
                     if (arithmetic_modifier)
                     {
-                        data.setData(data.getData() - data.getGlobal());
+                        m.getData().setData(m.getData().getData() - m.getData().getGlobal());
                         arithmetic_modifier = false;
                     }
                     else
-                        data.setData(data.getData() - 1);
+                        m.getData().setData(m.getData().getData() - 1);
                     break;
                 case '[':
-                    if (data.getData() == 0)
-                        commands.openLoop();
+                    if (m.getData().getData() == 0)
+                        m.getCommands().openLoop();
                     break;
                 case ']':
-                    if (data.getData() != 0)
+                    if (m.getData().getData() != 0)
                     {
-                        commands.closeLoop();
+                        m.getCommands().closeLoop();
                     }
                     break;
                 case '.':
-                    return ((char) data.getData()).ToString();
+                    m.getForm().toOutput(((char) m.getData().getData() ).ToString());
+                    break;
                 case ':':
-                    return data.getData().ToString();
+                    m.getForm().toOutput(m.getData().getData().ToString());
+                    break;
                 case '\\':
-                    return "\r\n";
+                    m.getForm().toOutput("\r\n");
+                    break;
                 case '#':
-                    data.setGlobal(data.getData());
+                    m.getData().setGlobal(m.getData().getData());
                     break;
                 case '@':
-                    data.setData(data.getGlobal());
+                    m.getData().setData(m.getData().getGlobal());
                     break;
                 case 'l':
-                    commands.turnLeft();
+                    m.getCommands().turnLeft();
                     break;
                 case 'r':
-                    commands.turnRight();
+                    m.getCommands().turnRight();
                     break;
                 case '?':
-                    if (data.getData() == 0)
+                    if (m.getData().getData() == 0)
                     {
-                        commands.turnRight();
+                        m.getCommands().turnRight();
                     }
                     break;
                 case '*':
                     if (arithmetic_modifier)
                     {
-                        data.setData(data.getData() * data.getGlobal());
+                        m.getData().setData(m.getData().getData() * m.getData().getGlobal());
                         arithmetic_modifier = false;
                     }
                     else
@@ -95,20 +105,19 @@ namespace WindowsFormsApplication1
                 case '%':
                     if (arithmetic_modifier)
                     {
-                        data.setData(data.getData() % data.getGlobal());
+                        m.getData().setData(m.getData().getData() % m.getData().getGlobal());
                         arithmetic_modifier = false;
                     }
                     break;
                 case '~':
-                    main.abort("");
+                    m.abort("");
                     break;
                 default:
                     break;
             }
-            return string.Empty;
         }
 
-        public static void reset()
+        public void reset()
         {
             arithmetic_modifier = false;
         }

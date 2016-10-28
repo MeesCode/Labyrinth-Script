@@ -8,71 +8,78 @@ namespace WindowsFormsApplication1
 {
     class data
     {
-        private static int size = 100;
+        private int size = 100;
 
-        private static int indexX = 0;
-        private static int indexY = 0;
-        private static long[,] memory = new long[size, size];
+        private int indexX = 0;
+        private int indexY = 0;
+        private long[,] memory;
 
-        private static long global;
+        private long global;
+        private main m;
 
-        public static long getData()
+        public data(main ma)
+        {
+            m = ma;
+            memory = new long[size, size];
+        }
+
+        public long getData()
         {
             return memory[indexX, indexY];
         }
 
-        public static void setData(long l)
+        public void setData(long l)
         {
             memory[indexX, indexY] = l;
         }
 
-        public static void increaseX()
+        public void increaseX()
         {
             if (indexX >= size - 1)
             {
-                main.abort("(" + (indexX + 1) + ", " + indexY + ") Data does not exist.");
+                m.abort("(" + (indexX + 1) + ", " + indexY + ") Data does not exist.");
             }
             indexX++;
         }
 
-        public static void decreaseX()
+        public void decreaseX()
         {
             if (indexX <= 0)
             {
-                main.abort("(" + (indexX - 1) + ", " + indexY + ") Data does not exist.");
+                m.abort("(" + (indexX - 1) + ", " + indexY + ") Data does not exist.");
             }
             indexX--;
         }
 
-        public static void increaseY()
+        public void increaseY()
         {
             if (indexY >= size - 1)
             {
-                main.abort("(" + indexX + ", " + (indexY + 1) + ") Data does not exist.");
+                m.abort("(" + indexX + ", " + (indexY + 1) + ") Data does not exist.");
             }
             indexY++;
         }
 
-        public static void decreaseY()
+        public void decreaseY()
         {
             if (indexY <= 0)
             {
-                main.abort("(" + indexX + ", " + (indexY - 1) + ") Data does not exist.");
+                m.abort("(" + indexX + ", " + (indexY - 1) + ") Data does not exist.");
             }
             indexY--;
         }
 
-        public static void setGlobal(long l)
+        public void setGlobal(long l)
         {
             global = l;
         }
 
-        public static long getGlobal()
+        public long getGlobal()
         {
             return global;
         }
 
-        public static void reset()
+        public void reset()
         {
             indexX = 0;
             indexY = 0;

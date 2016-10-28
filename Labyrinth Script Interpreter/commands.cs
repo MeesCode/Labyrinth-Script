@@ -8,40 +8,46 @@ namespace WindowsFormsApplication1
 {
     class commands
     {
-        private static int indexX = 0;
-        private static int indexY = 0;
-        private static char[,] commandArray = new char[100, 100];
+        main m;
+        private int indexX = 0;
+        private int indexY = 0;
+        private char[,] commandArray = new char[100, 100];
+
+        public commands(main ma)
+        {
+            m = ma;
+        }
 
         public enum direction
         {
             UP, DOWN, LEFT, RIGHT
         };
 
-        private static direction dir = direction.RIGHT;
+        private direction dir = direction.RIGHT;
 
-        public static void setCommand(char[,] c)
+        public void setCommand(char[,] c)
         {
             commandArray = c;
         }
 
-        public static char getNext()
+        public char getNext()
         {
             updateIndex(dir);
             return commandArray[indexX, indexY];
         }
 
-        public static char getPrevious()
+        public char getPrevious()
         {
             updateIndex(getOpposite(dir));
             return commandArray[indexX, indexY];
         }
 
-        public static char getCurrent()
+        public char getCurrent()
         {
             return commandArray[indexX, indexY];
         }
 
-        public static direction getOpposite(direction d)
+        public direction getOpposite(direction d)
         {
             switch (d)
             {
@@ -54,11 +60,11 @@ namespace WindowsFormsApplication1
                 case direction.RIGHT:
                     return direction.LEFT;
             }
-            main.abort("direction not possible");
+            m.abort("direction not possible");
             return dir;
         }
 
-        public static void closeLoop()
+        public void closeLoop()
         {
             int counted = 0;
             while (true)
@@ -66,9 +72,9 @@ namespace WindowsFormsApplication1
                 getPrevious();
                 if (getCurrent() == 'l' || getCurrent() == 'r')
                 {
-                    logic.execute(getCurrent());
-                    logic.execute(getCurrent());
-                    logic.execute(getCurrent());
+                    m.getLogic().execute(getCurrent());
+                    m.getLogic().execute(getCurrent());
+                    m.getLogic().execute(getCurrent());
                 }
                 if (getCurrent() == '?')
                 {
@@ -99,7 +105,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        public static void openLoop()
+        public void openLoop()
         {
             int counted = 0;
             while (true)
@@ -107,7 +113,7 @@ namespace WindowsFormsApplication1
                 getNext();
                 if (getCurrent() == 'l' || getCurrent() == 'r')
                 {
-                    logic.execute(getCurrent());
+                    m.getLogic().execute(getCurrent());
                 }
                 if (commandArray[indexX, indexY] == '[')
                 {
@@ -127,7 +133,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        public static void turnRight()
+        public void turnRight()
         {
             switch (dir)
             {
@@ -146,7 +152,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        public static void turnLeft()
+        public void turnLeft()
         {
             switch (dir)
             {
@@ -165,17 +171,17 @@ namespace WindowsFormsApplication1
             }
         }
 
-        public static bool hasNext()
+        public bool hasNext()
         {
             return hasFollowing(dir);
         }
 
-        public static bool hasPrevious()
+        public bool hasPrevious()
         {
             return hasFollowing(getOpposite(dir));
         }
 
-        public static bool hasFollowing(direction d)
+        public bool hasFollowing(direction d)
         {
             switch (d)
             {
@@ -201,7 +207,7 @@ namespace WindowsFormsApplication1
             return true;
         }
 
-        private static void updateIndex(direction d)
+        private void updateIndex(direction d)
         {
             switch (d)
             {
@@ -219,7 +225,7 @@ namespace WindowsFormsApplication1
                         }
                         else
                         {
-                            main.abort("(" + indexX + ", " + indexY + ") Commands does not exist.");
+                            m.abort("(" + indexX + ", " + indexY + ") Commands does not exist.");
                         }
                     }
                     break;
@@ -237,7 +243,7 @@ namespace WindowsFormsApplication1
                         }
                         else
                         {
-                            main.abort("(" + indexX + ", " + indexY + ") Commands does not exist.");
+                            m.abort("(" + indexX + ", " + indexY + ") Commands does not exist.");
                         }
                     }
                     break;
@@ -248,7 +254,7 @@ namespace WindowsFormsApplication1
                     }
                     else
                     {
-                        main.abort("(" + indexX + ", " + indexY + ") Commands does not exist.");
+                        m.abort("(" + indexX + ", " + indexY + ") Commands does not exist.");
                     }
                     break;
                 case direction.UP:
@@ -258,13 +264,13 @@ namespace WindowsFormsApplication1
                     }
                     else
                     {
-                        main.abort("(" + indexX + ", " + indexY + ") Commands does not exist.");
+                        m.abort("(" + indexX + ", " + indexY + ") Commands does not exist.");
                     }
                     break;
             }
         }
 
-        private static bool directionNotEmpty(direction d)
+        private bool directionNotEmpty(direction d)
         {
             switch (d)
             {
@@ -290,7 +296,7 @@ namespace WindowsFormsApplication1
             return false;
         }
 
-        public static void reset()
+        public void reset()
         {
             dir = direction.RIGHT;
             indexY = 0;

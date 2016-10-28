@@ -13,6 +13,13 @@ namespace WindowsFormsApplication1
     public partial class Form1 : Form
     {
         private string currentPath = null;
+        private main m ;
+
+        public Form1()
+        {
+            InitializeComponent();
+            m = new main(this);
+        }
 
         public void toOutput(string s)
         {
@@ -27,11 +34,6 @@ namespace WindowsFormsApplication1
         public void toOutput(long s)
         {
             output.AppendText(s.ToString());
-        }
-
-        public Form1()
-        {
-            InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -51,9 +53,9 @@ namespace WindowsFormsApplication1
 
         private void Run_Click(object sender, EventArgs e)
         {
-            main.reset();
-            commands.setCommand(main.turnIntoArray(input.Text));
-            output.Text = main.run();
+            m.reset();
+            m.getCommands().setCommand(m.turnIntoArray(input.Text));
+            m.run();
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)

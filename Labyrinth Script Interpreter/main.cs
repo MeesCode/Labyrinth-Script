@@ -8,20 +8,32 @@ namespace WindowsFormsApplication1
 {
     class main
     {
-        private static bool stop = false;
+        private bool stop = false;
 
-        public static string run()
+        private Form1 form;
+        private logic l;
+        private commands c;
+        private data d;
+
+        public main(Form1 f)
         {
-            string output = string.Empty;
-            output += logic.execute(commands.getCurrent());
-            while (commands.hasNext() && !stop)
-            {
-                output += logic.execute(commands.getNext());
-            }
-            return output;
+            l = new logic(this);
+            c = new commands(this);
+            d = new data(this);
+            form = f;
         }
 
-        public static char[,] turnIntoArray(string s)
+        public void run()
+        {
+            string output = string.Empty;
+            l.execute(c.getCurrent());
+            while (c.hasNext() && !stop)
+            {
+                l.execute(c.getNext());
+            }
+        }
+
+        public char[,] turnIntoArray(string s)
         {
             int maxX = 1;
             int maxY = 1;
@@ -66,17 +78,38 @@ namespace WindowsFormsApplication1
             return commandArray;
         }
 
-        public static void abort(String s)
+        public void abort(String s)
         {
+            form.toOutput(s);
             stop = true;
         }
 
-        public static void reset()
+        public void reset()
         {
-            commands.reset();
-            logic.reset();
-            data.reset();
+            c.reset();
+            l.reset();
+            d.reset();
             stop = false;
+        }
+
+        public logic getLogic()
+        {
+            return l;
+        }
+
+        public data getData()
+        {
+            return d;
+        }
+
+        public commands getCommands()
+        {
+            return c;
+        }
+
+        public Form1 getForm()
+        {
+            return form;
         }
     }
 }

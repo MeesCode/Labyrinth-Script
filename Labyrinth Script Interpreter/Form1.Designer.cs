@@ -54,7 +54,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(0);
-            this.menuStrip1.Size = new System.Drawing.Size(496, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(385, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -117,7 +117,7 @@
             this.input.Multiline = true;
             this.input.Name = "input";
             this.input.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.input.Size = new System.Drawing.Size(496, 171);
+            this.input.Size = new System.Drawing.Size(385, 197);
             this.input.TabIndex = 1;
             // 
             // Run
@@ -125,10 +125,10 @@
             this.Run.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Run.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Run.Location = new System.Drawing.Point(1, 172);
+            this.Run.Location = new System.Drawing.Point(1, 198);
             this.Run.Margin = new System.Windows.Forms.Padding(0);
             this.Run.Name = "Run";
-            this.Run.Size = new System.Drawing.Size(496, 26);
+            this.Run.Size = new System.Drawing.Size(385, 26);
             this.Run.TabIndex = 2;
             this.Run.Text = "Run";
             this.Run.UseVisualStyleBackColor = true;
@@ -150,7 +150,7 @@
             this.output.Name = "output";
             this.output.ReadOnly = true;
             this.output.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.output.Size = new System.Drawing.Size(495, 81);
+            this.output.Size = new System.Drawing.Size(384, 93);
             this.output.TabIndex = 3;
             // 
             // splitContainer1
@@ -171,8 +171,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.output);
-            this.splitContainer1.Size = new System.Drawing.Size(496, 283);
-            this.splitContainer1.SplitterDistance = 198;
+            this.splitContainer1.Size = new System.Drawing.Size(385, 321);
+            this.splitContainer1.SplitterDistance = 224;
             this.splitContainer1.TabIndex = 4;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
             // 
@@ -180,7 +180,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(496, 310);
+            this.ClientSize = new System.Drawing.Size(385, 348);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
