@@ -44,11 +44,10 @@ namespace WindowsFormsApplication1
         public void getInput()
         {
             output.ReadOnly = false;
-            output.ForeColor = Color.Yellow;
+            output.SelectionStart = output.TextLength;
+            output.SelectionColor = Color.Yellow;
             output.Focus();
         }
-
-
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -135,7 +134,8 @@ namespace WindowsFormsApplication1
             if(e.KeyCode == Keys.Enter)
             {
                 output.ReadOnly = true;
-                output.ForeColor = Color.White;
+                output.SelectionStart = output.TextLength;
+                output.SelectionColor = Color.White;
                 m.getLogic().setInput(output.Lines[output.Lines.Length - 1]);
                 toOutput("\r\n");
                 m.setPause(false);
