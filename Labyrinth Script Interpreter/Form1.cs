@@ -41,6 +41,15 @@ namespace WindowsFormsApplication1
 
         }
 
+        public void getInput()
+        {
+            output.ReadOnly = false;
+            output.ForeColor = Color.Yellow;
+            output.Focus();
+        }
+
+
+
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog file = new SaveFileDialog();
@@ -54,6 +63,7 @@ namespace WindowsFormsApplication1
         private void Run_Click(object sender, EventArgs e)
         {
             output.Text = string.Empty;
+            output.ReadOnly = true;
             m.reset();
             m.getCommands().setCommand(m.turnIntoArray(input.Text));
             m.run();
@@ -115,6 +125,25 @@ namespace WindowsFormsApplication1
         }
 
         private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
+
+        private void output_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if(e.KeyCode == Keys.Enter)
+            {
+                output.ReadOnly = true;
+                output.ForeColor = Color.White;
+                m.getLogic().setInput(output.Lines[output.Lines.Length - 1]);
+                toOutput("\r\n");
+                m.setPause(false);
+                m.run();
+            }
+        }
+
+        private void output_TextChanged(object sender, EventArgs e)
         {
 
         }

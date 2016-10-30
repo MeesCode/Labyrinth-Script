@@ -10,6 +10,7 @@ namespace WindowsFormsApplication1
     {
         private bool arithmetic_modifier = false;
         private main m;
+        private string input = string.Empty;
 
         public logic(main ma)
         {
@@ -75,6 +76,18 @@ namespace WindowsFormsApplication1
                 case '\\':
                     m.getForm().toOutput("\r\n");
                     break;
+                case ',':
+                    if(input == string.Empty)
+                    {
+                        m.getForm().getInput();
+                        m.setPause(true);
+                    }
+                    else
+                    {
+                        m.getData().setData(input[0]);
+                        input = input.Substring(1);
+                    }
+                    break;
                 case '#':
                     m.getData().setGlobal(m.getData().getData());
                     break;
@@ -115,6 +128,11 @@ namespace WindowsFormsApplication1
                 default:
                     break;
             }
+        }
+
+        public void setInput(string s)
+        {
+            input += s;
         }
 
         public void reset()

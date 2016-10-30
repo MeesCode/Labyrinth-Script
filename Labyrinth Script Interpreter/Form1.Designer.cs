@@ -37,8 +37,8 @@
             this.removeCommentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.input = new System.Windows.Forms.TextBox();
             this.Run = new System.Windows.Forms.Button();
-            this.output = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.output = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -54,7 +54,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(0);
-            this.menuStrip1.Size = new System.Drawing.Size(385, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(325, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -117,7 +117,7 @@
             this.input.Multiline = true;
             this.input.Name = "input";
             this.input.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.input.Size = new System.Drawing.Size(385, 197);
+            this.input.Size = new System.Drawing.Size(325, 173);
             this.input.TabIndex = 1;
             // 
             // Run
@@ -125,33 +125,14 @@
             this.Run.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Run.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Run.Location = new System.Drawing.Point(1, 198);
+            this.Run.Location = new System.Drawing.Point(1, 174);
             this.Run.Margin = new System.Windows.Forms.Padding(0);
             this.Run.Name = "Run";
-            this.Run.Size = new System.Drawing.Size(385, 26);
+            this.Run.Size = new System.Drawing.Size(325, 26);
             this.Run.TabIndex = 2;
             this.Run.Text = "Run";
             this.Run.UseVisualStyleBackColor = true;
             this.Run.Click += new System.EventHandler(this.Run_Click);
-            // 
-            // output
-            // 
-            this.output.AcceptsReturn = true;
-            this.output.AcceptsTab = true;
-            this.output.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.output.BackColor = System.Drawing.SystemColors.InfoText;
-            this.output.Font = new System.Drawing.Font("Courier New", 11.25F);
-            this.output.ForeColor = System.Drawing.SystemColors.Info;
-            this.output.Location = new System.Drawing.Point(1, 0);
-            this.output.Margin = new System.Windows.Forms.Padding(0);
-            this.output.Multiline = true;
-            this.output.Name = "output";
-            this.output.ReadOnly = true;
-            this.output.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.output.Size = new System.Drawing.Size(384, 93);
-            this.output.TabIndex = 3;
             // 
             // splitContainer1
             // 
@@ -171,16 +152,33 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.output);
-            this.splitContainer1.Size = new System.Drawing.Size(385, 321);
-            this.splitContainer1.SplitterDistance = 224;
+            this.splitContainer1.Size = new System.Drawing.Size(325, 288);
+            this.splitContainer1.SplitterDistance = 200;
             this.splitContainer1.TabIndex = 4;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
+            // 
+            // output
+            // 
+            this.output.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.output.BackColor = System.Drawing.SystemColors.InfoText;
+            this.output.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.output.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.output.Location = new System.Drawing.Point(0, -1);
+            this.output.Name = "output";
+            this.output.ReadOnly = true;
+            this.output.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.output.Size = new System.Drawing.Size(325, 85);
+            this.output.TabIndex = 0;
+            this.output.Text = "";
+            this.output.KeyDown += new System.Windows.Forms.KeyEventHandler(this.output_KeyDown);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(385, 348);
+            this.ClientSize = new System.Drawing.Size(325, 315);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -193,7 +191,6 @@
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -209,11 +206,11 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.TextBox input;
         private System.Windows.Forms.Button Run;
-        public System.Windows.Forms.TextBox output;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeCommentsToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.RichTextBox output;
     }
 }
 

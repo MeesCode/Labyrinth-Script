@@ -9,6 +9,7 @@ namespace WindowsFormsApplication1
     class main
     {
         private bool stop = false;
+        private bool pause = false;
 
         private Form1 form;
         private logic l;
@@ -25,9 +26,8 @@ namespace WindowsFormsApplication1
 
         public void run()
         {
-            string output = string.Empty;
             l.execute(c.getCurrent());
-            while (c.hasNext() && !stop)
+            while (c.hasNext() && !stop && !pause)
             {
                 l.execute(c.getNext());
             }
@@ -90,6 +90,11 @@ namespace WindowsFormsApplication1
             l.reset();
             d.reset();
             stop = false;
+        }
+
+        public void setPause(bool b)
+        {
+            pause = b;
         }
 
         public logic getLogic()
